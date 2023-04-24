@@ -86,5 +86,24 @@ sudo systemctl restart nginx
 ```
 7. make sure you're in the app folder and type ```npm install``` and ```node app.js```.  Then you can access app from webbrowers using ip address.
 
+### adding database
+ - create another server db-sever
+ - amend required sg rules - 27017 mongodb for your app and ssh from your ip
+ - provision.sh to mongo installation set up required version
+ - mongodb.conf to change the bind ip to either app ip or all
+- restart then enable
+- bacck to app manchie 
+- create env variable called DB_HOST = db-ip
+- navigate to app folder and relaunch app
+- mongodb server to allow app ip
 
+we dont want the public access to the db but give access to your app to the database
+
+1. create a db server
+typical dont enable public ip
+the SG:
+
+2. download provision file
+
+<img width="251" alt="image" src="https://user-images.githubusercontent.com/118978642/234012136-ba452ec7-2965-4742-b6c3-f218de0519d5.png">
 
