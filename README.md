@@ -45,7 +45,44 @@ Finally, head over to aws and amend your ec2 instance security to allow traffic 
 
 Once done, you should be able to access the app by typing the following in a webbrowser: publicip:3000
 
+####reverse proxy with the app
 
+ 1. make sure nginx is installed ```sudo apt-get install nginx``` and your server is up and running.
+ 2. cd to the nginx configuration file: ```cd /etc/nginx/sites-available/```
+ 3. create a reverse proxy file in the folder: ```sudo nano reverse-proxy``` and include following code:
+ ```
+ server {
+    listen 80;
+    server_name 34.252.106.230;
+
+    location / {
+        proxy_pass http://34.252.106.230:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
+This configuration will listen on port 80 for requests to your domain and forward them to the local port 3000
+
+4. Enable the configuration: Create a symbolic link from the sites-available directory to the sites-enabled directory to enable the new configuration file:
+```
+sudo ln -s /etc/nginx/sites-available/reverse-proxy /etc/nginx/sites-enabled/
+```
+
+5. check configuration file for errors
+
+```
+sudo nginx -t
+```
+6. relaod your nginx
+
+```
+sudo systemctl restart nginx
+
+```
+7. make sure you're in the app folder and type ```npm install``` and ```node app.js```.  Then you can access app from webbrowers using ip address.
 
 
 
