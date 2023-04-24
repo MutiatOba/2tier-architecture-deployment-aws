@@ -103,7 +103,61 @@ we dont want the public access to the db but give access to your app to the data
 typical dont enable public ip
 the SG:
 
-2. download provision file
+2. run following commands
 
-<img width="251" alt="image" src="https://user-images.githubusercontent.com/118978642/234012136-ba452ec7-2965-4742-b6c3-f218de0519d5.png">
+[16:05] Samuel Naiwo
+
+
+
+
+ami-07b63aa1cfd3bc3a5
+
+
+
+
+
+
+sudo apt update -y
+
+sudo apt upgrade -y
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv D68FA50FEA312927
+
+echo "deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+
+sudo apt update -y
+
+sudo apt upgrade -y
+
+sudo apt-get install -y mongodb-org=3.2.20 mongodb-org-server=3.2.20 mongodb-org-shell=3.2.20 mongodb-org-mongos=3.2.20 mongodb-org-tools=3.2.20
+
+sudo systemctl start mongod
+
+sudo nano /etc/mongod.conf
+
+change bindIP:0.0.0.0
+
+sudo systemctl restart mongod sudo systemctl enable mongod: if we restart vm it will put changes into effect
+
+to check that the changes have been made do sudo systemctl status mongod
+
+go to the app instance
+
+cd to home 
+
+sudo nano .bashrc
+
+insert the following into the bottom of the file: export DB_HOST=mongodb://<ip_address_db>:27017/posts
+
+printenv DB_HOST
+
+source .bashrc
+
+cd to app folder
+
+node seeds/seed.js
+
+node app.js
+
+go to webbrower and type ipaddressforapp/posts
 
