@@ -1,3 +1,5 @@
+## two tier architecture deployment
+
 Want to eliminate single point of failure. This can be done using a two-tier achtitecture.
 
 Follow the normal steps to launch your ec2 instance and ssh into it. Once done,
