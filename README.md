@@ -16,8 +16,8 @@ The scp command first needs to know where your pem file is located, then where t
 
 Here are the steps that need to be taken:
 
--copy app
--install required dependencies
+- copy app
+- install required dependencies
 - ensure SG allows port 3000
 - npm install from the app folder location
 - npm start
@@ -47,7 +47,7 @@ Finally, head over to aws and amend your ec2 instance security to allow traffic 
 
 Once done, you should be able to access the app by typing the following in a webbrowser: publicip:3000
 
-####reverse proxy with the app
+#### reverse proxy with the app
 
  1. make sure nginx is installed ```sudo apt-get install nginx``` and your server is up and running.
  2. cd to the nginx configuration file: ```cd /etc/nginx/sites-available/```
