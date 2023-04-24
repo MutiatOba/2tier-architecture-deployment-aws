@@ -45,6 +45,10 @@ sudo npm install pm2 -g
 ```
 Finally, head over to aws and amend your ec2 instance security to allow traffic from port 3000.
 
+ cd into app then run the following commands:
+- ```npm install``` - used to install Node.js packages or dependencies for a Node.js projec
+- ```node app.js``` - is used to run a Node.js application called "app.js
+
 Once done, you should be able to access the app by typing the following in a webbrowser: publicip:3000
 
 #### reverse proxy with the app
