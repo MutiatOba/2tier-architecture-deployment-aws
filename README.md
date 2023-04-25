@@ -146,3 +146,15 @@ cd to app folder:
 
 go to webbrower and type ipaddressforapp/posts
 
+#### AMIs
+
+
+- ensure/posts works
+- Build AMIs for nodejs server and mongod
+- SG rules for app instance and db instances 
+- app info for third party: port 3000 as well as port 80 and needs reverse proxy enabled in the Ireland
+- db info for third party: port 27017 they wont need to ssh - they just need the private ip address to put in the env for app. NEVER NEED TO ACCESS DB
+- mongod.conf changed to 0.0.0.0
+
+
+
