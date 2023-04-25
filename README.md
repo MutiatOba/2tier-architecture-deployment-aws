@@ -156,9 +156,11 @@ go to webbrower and type ipaddressforapp/posts
 - db info for third party: port 27017 they wont need to ssh - they just need the private ip address to put in the env for app. NEVER NEED TO ACCESS DB
 - mongod.conf changed to 0.0.0.0
 
-Launch your db instance and check mongod is running  - if it is running then move on to check the app
+1. ensure posts works
 
-Launch you app instance - ```npm start``` and the  ```node app.js``` - go to browser to check if it works with port 3000. the reverse proxy would need to be updated.
+Launch your db instance and check mongod is running: ```sudo systemctl status mongod```  - if it is running then move on to check the app
+
+Launch you app instance - ```npm start``` and then  ```node app.js``` - go to browser to check if it works with port 3000. the reverse proxy would need to be updated as the ip for app changed with relaunching of instance.
 
 [[[you can update your reverse proxy file
 
@@ -180,7 +182,6 @@ cd to the nginx configuration file: ```cd /etc/nginx/sites-available/```
 ]]]
 
 
-
 cd to home 
 ```sudo nano .bashrc```
 
@@ -191,4 +192,4 @@ update for the new db ip address: ```export DB_HOST=mongodb://<ip_address_db>:27
 cd to app folder
 - ```npm start```
 - ```node app.js```
-
+your app should run on webbrowser: appip:3000/posts
