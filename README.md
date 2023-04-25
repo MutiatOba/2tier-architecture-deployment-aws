@@ -160,14 +160,35 @@ Launch your db instance and check mongod is running  - if it is running then mov
 
 Launch you app instance - ```npm start``` and the  ```node app.js``` - go to browser to check if it works with port 3000. the reverse proxy would need to be updated.
 
+[[[you can update your reverse proxy file
+
+cd to the nginx configuration file: ```cd /etc/nginx/sites-available/```
+
+```
+ server {
+    listen 80;
+    server_name localhost;
+
+    location / {
+        proxy_pass localhost:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+]]]
+
+
+
 cd to home 
 ```sudo nano .bashrc```
 
 update for the new db ip address: ```export DB_HOST=mongodb://<ip_address_db>:27017/posts```
-```source .bashrc```
-```printenv DB_HOST```
+- ```source .bashrc```
+- ```printenv DB_HOST```
 
 cd to app folder
-```npm start```
-```node app.js```
+- ```npm start```
+- ```node app.js```
 
