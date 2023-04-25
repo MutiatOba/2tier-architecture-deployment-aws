@@ -158,6 +158,16 @@ go to webbrower and type ipaddressforapp/posts
 
 Launch your db instance and check mongod is running  - if it is running then move on to check the app
 
-Launch you app instance - ```node app.js``` - go to browser to check if it works with port 3000. the reverse proxy 
+Launch you app instance - ```npm start``` and the  ```node app.js``` - go to browser to check if it works with port 3000. the reverse proxy would need to be updated.
 
+cd to home 
+```sudo nano .bashrc```
+
+update for the new db ip address: ```export DB_HOST=mongodb://<ip_address_db>:27017/posts```
+```source .bashrc```
+```printenv DB_HOST```
+
+cd to app folder
+```npm start```
+```node app.js```
 
