@@ -156,5 +156,8 @@ go to webbrower and type ipaddressforapp/posts
 - db info for third party: port 27017 they wont need to ssh - they just need the private ip address to put in the env for app. NEVER NEED TO ACCESS DB
 - mongod.conf changed to 0.0.0.0
 
+Launch your db instance and check mongod is running  - if it is running then move on to check the app
+
+Launch you app instance
 
 
