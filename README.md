@@ -158,6 +158,6 @@ go to webbrower and type ipaddressforapp/posts
 
 Launch your db instance and check mongod is running  - if it is running then move on to check the app
 
-Launch you app instance
+Launch you app instance - ```node app.js``` - go to browser to check if it works with port 3000. the reverse proxy 
 
 
